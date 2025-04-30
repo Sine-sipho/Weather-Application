@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="weather-interface">
+        <div class="search-container">
+            <input type="search" name="search-input" class="search-input" id="search-input" required>
+            <button type="submit" class="search-button">
+                <img src="images/search (2).png" id="search-button" alt="">
+            </button>
+        </div>
+        <div class="daily-forecast">
+        <div class="city-name" id="city-name">East London</div>
+        <div class="temperature">
+            <span id="current-temp">20</span>
+            <span>°c</span>
+            <span class="daily-icon"><img src="" alt=""></span>
+        </div>
+        <div class="day" id="day">Friday, February 12:24</div>
+        </div>
+        <div class="weekly-forecast">
+            <ul>
+                <li>
+                    <span class="forecast-icon"><img src="images/rainy-day.png" alt=""></span>
+                    <span>17%</span>
+                    <span id="day-two">Tuesday</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="forecast-icon"><img src="images/part-cloud.png" alt=""></span>
+                    <span>22%</span>
+                    <span id="day-three">Wednesday</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="forecast-icon"><img src="images/rainy-day.png" alt=""></span>
+                    <span>19%</span>
+                    <span id="day-four">Thursday</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="forecast-icon"><img src="images/sun (2).png" alt=""></span>
+                    <span>26%</span>
+                    <span id="day-five">Thursday</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="forecast-icon"><img src="images/sun (2).png" alt=""></span>
+                    <span>25%</span>
+                    <span id="day-six">Friday</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="forecast-icon"><img src="images/sun (2).png" alt=""></span>
+                    <span>25%</span>
+                    <span id="day-seven">Friday</span>
+                </li>
+            </ul>
+        </div>
+    <script src="index.js"></script>
+</body>
+</html>
