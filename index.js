@@ -1,3 +1,5 @@
+// import axios from "axios";
+
 function addZero(num) {
   if (num < 10) {
     num = "0" + num;
@@ -39,23 +41,74 @@ function day() {
 
   let time = document.getElementById("day");
   time.innerHTML = `${day}, ${month} ${hour}:${minutes}`;
+
+  let nextday = weekdays[now.getDay()];
+  console.log(nextday);
 }
 day();
+//Weekly forecast
 
-function showCityName(event) {
-  event.preventDefault();
-  let cityValue = document.querySelector("#search-input").value;
-  let city = document.querySelector("#city-name");
-  city.innerHTML = cityValue;
+//
+// function showCityName(event) {
+//   event.preventDefault();
+//   let cityValue = document.querySelector("#search-input").value;
+//   let city = document.querySelector("#city-name");
+//   city.innerHTML = cityValue;
+//   cityValue = "";
+// }
+
+// function search() {
+//   let button = document.querySelector("#search-button");
+//   button.addEventListener("click", showCityName);
+// }
+// search();
+
+function showTemperature(response) {
+  let city = document.getElementById("city-name");
+  let temp = document.getElementById("current-temp");
+  let currenttemperature = Math.round(response.data.temperature.current);
+  city.innerHTML = response.data.city;
+  temp.innerHTML = currenttemperature;
 }
 
 function search() {
-  let button = document.querySelector("#search-button");
-  button.addEventListener("click", showCityName);
+  let currentCity = document.getElementById("search-input").value;
+
+  let key = "34dcb3cfedt4654990206a21091oab73";
+  let weatherUrl = `https://api.shecodes.io/weather/v1/current?query=${currentCity}&key=${key}&units=metric`;
+  axios.get(weatherUrl).then(showTemperature);
 }
-search();
 
-let key = "34dcb3cfedt4654990206a21091oab73";
-let weatherUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
+document.getElementById("btn").addEventListener("click", search);
+// Homework
 
-axios.get(weatherUrl).then();
+let weather = {
+  paris: {
+    temp: 19.7,
+    humidity: 80,
+  },
+  tokyo: {
+    temp: 17.3,
+    humidity: 50,
+  },
+  lisbon: {
+    temp: 30.2,
+    humidity: 20,
+  },
+  "san francisco": {
+    temp: 20.9,
+    humidity: 100,
+  },
+  oslo: {
+    temp: -5,
+    humidity: 20,
+  },
+};
+
+//Code
+let city = prompt("Enter a city:");
+weather.forEach((place) => {
+  if (place === city) {
+    alert(place.temp);
+  }
+});
